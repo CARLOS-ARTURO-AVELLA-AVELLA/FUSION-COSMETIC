@@ -1,0 +1,29 @@
+iframe#insideChatFrame.notificationMode {
+  transform: translateY(-144px) !important;
+}
+
+.inside_visitorNotify.notification .inside_notify_content {
+  width: 100% !important;
+}
+
+/* Make sure our chat pane appears on top of other popups */
+#inside_holder.chatPaneOpen {
+  z-index: 999999999999;
+}
+
+/* fix css conflicts */
+#inside_liveChatTab {
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+
+/* Change font for visitor popups */
+.inside_notify_content_message {
+  font-family: var(--font-main) !important;
+  font-size: 14px !important;
+  letter-spacing: .5px !important;
+  text-align: left !important;
+  padding-right: 20px !important;
+}

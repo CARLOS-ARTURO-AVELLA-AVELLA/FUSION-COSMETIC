@@ -77,66 +77,46 @@ export const MESSAGES = {
 
 // Categorías principales
 export const CATEGORIES = [
-  {
-    id: 1,
-    title: 'Perfumes para Ella',
-    emoji: '👰',
-    href: '/productos?genero=mujer',
-    description: 'Fragancias sofisticadas y femeninas'
-  },
-  {
-    id: 2,
-    title: 'Perfumes para Él',
-    emoji: '🤵',
-    href: '/productos?genero=hombre',
-    description: 'Aromas clásicos y modernos'
-  },
-  {
-    id: 3,
-    title: 'Nuestras Marcas',
-    emoji: '✨',
-    href: '/productos',
-    description: 'Las mejores marcas internacionales'
-  },
-  {
-    id: 4,
-    title: 'Colecciones Limitadas',
-    emoji: '💎',
-    href: '/productos',
-    description: 'Ediciones exclusivas y especiales'
-  }
+  { id: 1, title: 'Florales', emoji: '👰', href: '/productos?genero=mujer', description: '' },
+  { id: 2, title: 'Cítricas', emoji: '🤵', href: '/productos?genero=hombre', description: '' },
+  { id: 3, title: 'Amaderadas', emoji: '✨', href: '/productos', description: '' },
+  { id: 4, title: 'Orientales-Ambaradas', emoji: '💎', href: '/productos', description: '' },
+  { id: 5, title: 'Fragancias Chipré', emoji: '🌟', href: '/productos', description: '' },
+  { id: 6, title: 'Fragancias Gourmand', emoji: '⭐', href: '/productos', description: '' },
+  { id: 7, title: 'Fragancias Fougère', emoji: '🎁', href: '/productos', description: '' },
+  { id: 8, title: 'Fragancias Especiadas', emoji: '👑', href: '/productos', description: '' },
 ]
 
-// Razones por qué elegir Fusion
+// ⭐ RAZONES POR QUÉ ELEGIR FUSION
 export const WHY_CHOOSE_US = [
   {
     icon: '✓',
     title: '100% Auténtico',
-    description: 'Todos nuestros perfumes son originales certificados'
+    description: 'Todos nuestros perfumes son originales certificados. Cada producto viene con garantía de autenticidad y puedes comprar con total confianza.',
+    bgColor: 'bg-blue-50',
+    iconColor: 'text-blue-600'
   },
   {
     icon: '🚚',
     title: 'Envío Rápido',
-    description: 'Entrega en 2-3 días hábiles a todo el país'
+    description: 'Entregas a todo el país. Rastreo en tiempo real de tu pedido desde que sale de nuestro almacén.',
+    bgColor: 'bg-green-50',
+    iconColor: 'text-green-600'
   },
   {
     icon: '💳',
     title: 'Precios Competitivos',
-    description: 'Las mejores ofertas del mercado'
+    description: 'Las mejores ofertas con descuentos y promociones exclusivas para clientes frecuentes.',
+    bgColor: 'bg-purple-50',
+    iconColor: 'text-purple-600'
   },
   {
     icon: '🎧',
     title: 'Soporte Premium',
-    description: 'Equipo dedicado a tu servicio siempre disponible'
+    description: 'Experiencia de 35 años y atención personalizada 24/7.',
+    bgColor: 'bg-orange-50',
+    iconColor: 'text-orange-600'
   }
-]
-
-// Métodos de pago aceptados
-export const PAYMENT_METHODS = [
-  { name: 'Tarjeta de Crédito', icon: '💳' },
-  { name: 'Transferencia Bancaria', icon: '🏦' },
-  { name: 'Efectivo', icon: '💵' },
-  { name: 'PayPal', icon: '📱' }
 ]
 
 // URLs de redes sociales
