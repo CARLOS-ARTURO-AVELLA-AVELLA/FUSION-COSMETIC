@@ -1,8 +1,3 @@
-// ═════════════════════════════════════════════════════════════════════════
-// CONSTANTES GLOBALES - FUSION COSMETIC
-// ═════════════════════════════════════════════════════════════════════════
-
-// Colores de la aplicación
 export const COLORS = {
   gold: '#D4AF37',
   dark: '#1a1a1a',
@@ -13,7 +8,7 @@ export const COLORS = {
   white: '#ffffff'
 }
 
-// Marcas disponibles
+
 export const BRANDS = [
   { id: 1, name: 'Hugo Boss', logo: '👔' },
   { id: 2, name: 'Lancôme', logo: '✨' },
@@ -23,7 +18,6 @@ export const BRANDS = [
   { id: 6, name: 'Dolce & Gabbana', logo: '🌸' }
 ]
 
-// Tipos de fragancias
 export const FRAGRANCE_TYPES = [
   'Floral',
   'Oriental',
@@ -35,14 +29,12 @@ export const FRAGRANCE_TYPES = [
   'Cítrico'
 ]
 
-// Géneros
 export const GENDERS = [
   { value: 'mujer', label: 'Para Ella' },
   { value: 'hombre', label: 'Para Él' },
   { value: 'unisex', label: 'Unisex' }
 ]
 
-// Rangos de precio
 export const PRICE_RANGES = [
   { id: 1, label: 'Todos', min: 0, max: 10000 },
   { id: 2, label: '$0 - $50', min: 0, max: 50 },
@@ -51,7 +43,6 @@ export const PRICE_RANGES = [
   { id: 5, label: '$250+', min: 250, max: 10000 }
 ]
 
-// Opciones de ordenamiento
 export const SORT_OPTIONS = [
   { value: 'newest', label: 'Más Nuevos' },
   { value: 'popular', label: 'Más Populares' },
@@ -60,7 +51,6 @@ export const SORT_OPTIONS = [
   { value: 'rating', label: 'Mejor Calificados' }
 ]
 
-// Mensajes de la aplicación
 export const MESSAGES = {
   success: {
     addCart: '✓ Producto agregado al carrito',
@@ -75,7 +65,6 @@ export const MESSAGES = {
   }
 }
 
-// Categorías principales
 export const CATEGORIES = [
   { id: 1, title: 'Florales', emoji: '👰', href: '/productos?genero=mujer', description: '' },
   { id: 2, title: 'Cítricas', emoji: '🤵', href: '/productos?genero=hombre', description: '' },
@@ -119,14 +108,14 @@ export const WHY_CHOOSE_US = [
   }
 ]
 
-// URLs de redes sociales
+
 export const SOCIAL_MEDIA = [
   { name: 'Facebook', url: 'https://facebook.com', icon: '📘' },
   { name: 'Instagram', url: 'https://instagram.com', icon: '📷' },
   { name: 'Twitter', url: 'https://twitter.com', icon: '𝕏' }
 ]
 
-// Información de contacto
+
 export const CONTACT_INFO = {
   phone: '+57 (1) 555-0123',
   email: 'info@fusion-cosmetic.com',
@@ -134,5 +123,5 @@ export const CONTACT_INFO = {
   hours: 'Lunes - Viernes: 9:00 AM - 6:00 PM'
 }
 
-// Texto legal
+
 export const LEGAL_NOTICE = 'Al suscribirse, acepta nuestra política de privacidad y términos de servicio.'

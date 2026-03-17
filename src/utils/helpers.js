@@ -1,9 +1,6 @@
-// ═════════════════════════════════════════════════════════════════════════
-// FUNCIONES AUXILIARES - FUSION COSMETIC
-// ═════════════════════════════════════════════════════════════════════════
+
 
 /**
- * Formatea un número como precio en moneda USD
  * @param {number} price - El precio a formatear
  * @returns {string} Precio formateado (ej: $89.99)
  */
