@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 :root {
   --color-gold: #D4AF37;
   --color-dark: #1a1a1a;
@@ -10,11 +9,9 @@
   --color-accent: #E91E63;
   --color-gray-600: #666666;
   --color-white: #ffffff;
-  
   --transition-speed: 0.3s;
   --transition-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 
 * {
   margin: 0;
@@ -25,6 +22,7 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
+  overflow-x: hidden;
 }
 
 body {
@@ -34,6 +32,8 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -43,18 +43,9 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.02em;
 }
 
-h1 {
-  font-size: clamp(2.5rem, 8vw, 3.5rem);
-}
-
-h2 {
-  font-size: clamp(2rem, 6vw, 2.625rem);
-}
-
-h3 {
-  font-size: clamp(1.5rem, 4vw, 2rem);
-}
-
+h1 { font-size: clamp(2rem, 6vw, 3.5rem); }
+h2 { font-size: clamp(1.75rem, 5vw, 2.625rem); }
+h3 { font-size: clamp(1.25rem, 4vw, 2rem); }
 
 a {
   color: inherit;
@@ -62,260 +53,101 @@ a {
   transition: color var(--transition-speed) var(--transition-function);
 }
 
-a:hover {
-  color: var(--color-gold);
-}
-
+a:hover { color: var(--color-gold); }
 
 @layer components {
-  /* Contenedor máximo */
   .container-max {
     @apply max-w-7xl mx-auto px-4;
   }
 
-  /* Botones */
   .btn-primary {
     @apply px-6 py-3 rounded-sm font-bold text-white transition-all duration-300;
     background-color: var(--color-gold);
     color: var(--color-dark);
   }
-
-  .btn-primary:hover {
-    @apply scale-105 shadow-lg;
-    background-color: #f0c857;
-  }
-
-  .btn-primary:active {
-    @apply scale-95;
-  }
+  .btn-primary:hover { @apply scale-105 shadow-lg; background-color: #f0c857; }
+  .btn-primary:active { @apply scale-95; }
 
   .btn-dark {
     @apply px-6 py-3 rounded-sm font-bold text-white transition-all duration-300;
     background-color: var(--color-dark);
   }
-
-  .btn-dark:hover {
-    @apply scale-105 shadow-lg;
-    background-color: #333333;
-  }
-
-  .btn-dark:active {
-    @apply scale-95;
-  }
+  .btn-dark:hover { @apply scale-105 shadow-lg; background-color: #333333; }
+  .btn-dark:active { @apply scale-95; }
 
   .btn-accent {
     @apply px-6 py-3 rounded-sm font-bold text-white transition-all duration-300;
     background-color: var(--color-accent);
   }
+  .btn-accent:hover { @apply scale-105 shadow-lg; background-color: #d81b5f; }
+  .btn-accent:active { @apply scale-95; }
 
-  .btn-accent:hover {
-    @apply scale-105 shadow-lg;
-    background-color: #d81b5f;
-  }
+  .text-gold { color: var(--color-gold); }
 
-  .btn-accent:active {
-    @apply scale-95;
-  }
+  .shadow-premium { box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15); }
 
-  /* Texto gold */
-  .text-gold {
-    color: var(--color-gold);
-  }
+  .badge { @apply inline-block px-3 py-1 rounded-full text-sm font-bold; }
+  .badge-gold { @apply badge; background-color: var(--color-gold); color: var(--color-dark); }
+  .badge-red { @apply badge bg-red-500 text-white; }
+  .badge-orange { @apply badge bg-orange-500 text-white; }
 
-
-  .shadow-premium {
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-  }
-
- 
-  .badge {
-    @apply inline-block px-3 py-1 rounded-full text-sm font-bold;
-  }
-
-  .badge-gold {
-    @apply badge;
-    background-color: var(--color-gold);
-    color: var(--color-dark);
-  }
-
-  .badge-red {
-    @apply badge bg-red-500 text-white;
-  }
-
-  .badge-orange {
-    @apply badge bg-orange-500 text-white;
-  }
-
- 
   .card {
     @apply bg-white rounded-lg overflow-hidden transition-all duration-300;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
+  .card:hover { box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); }
 
-  .card:hover {
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-  }
-
-
-  .divider {
-    @apply border-t border-gray-200;
-  }
+  .divider { @apply border-t border-gray-200; }
 }
-
 
 @keyframes slideInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
-
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
-
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
-
 @keyframes slideInFromLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
 }
-
 @keyframes slideInFromRight {
-  from {
-    opacity: 0;
-    transform: translateX(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
 }
-
 @keyframes scaleIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
 }
 
-.animate-slide-up {
-  animation: slideInUp 0.6s ease-out;
-}
+.animate-slide-up { animation: slideInUp 0.6s ease-out; }
+.animate-fade-in { animation: fadeIn 0.6s ease-out; }
+.animate-fade-in-up { animation: fadeInUp 0.6s ease-out; }
+.animate-slide-in-left { animation: slideInFromLeft 0.6s ease-out; }
+.animate-slide-in-right { animation: slideInFromRight 0.6s ease-out; }
+.animate-scale-in { animation: scaleIn 0.6s ease-out; }
 
-.animate-fade-in {
-  animation: fadeIn 0.6s ease-out;
-}
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--color-light); }
+::-webkit-scrollbar-thumb { background: var(--color-gold); border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-dark); }
 
-.animate-fade-in-up {
-  animation: fadeInUp 0.6s ease-out;
-}
+.line-clamp-1 { display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; }
+.line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.line-clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 
-.animate-slide-in-left {
-  animation: slideInFromLeft 0.6s ease-out;
-}
-
-.animate-slide-in-right {
-  animation: slideInFromRight 0.6s ease-out;
-}
-
-.animate-scale-in {
-  animation: scaleIn 0.6s ease-out;
-}
-
-
-::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--color-light);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--color-gold);
-  border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-dark);
-}
-
-.line-clamp-1 {
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.line-clamp-2 {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.line-clamp-3 {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-:focus-visible {
-  outline: 2px solid var(--color-gold);
-  outline-offset: 2px;
-}
-
-button:focus-visible,
-a:focus-visible,
-input:focus-visible {
-  outline: 2px solid var(--color-gold);
-  outline-offset: 2px;
-}
-
+:focus-visible { outline: 2px solid var(--color-gold); outline-offset: 2px; }
+button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid var(--color-gold); outline-offset: 2px; }
 
 @media (max-width: 768px) {
-  html {
-    scroll-padding-top: 60px;
-  }
-
-  h1 {
-    font-size: clamp(1.875rem, 6vw, 2.5rem);
-  }
-
-  h2 {
-    font-size: clamp(1.5rem, 5vw, 2rem);
-  }
+  html { scroll-padding-top: 60px; }
+  h1 { font-size: clamp(1.75rem, 6vw, 2.5rem); }
+  h2 { font-size: clamp(1.25rem, 5vw, 2rem); }
 }
 
 @media (prefers-reduced-motion: reduce) {

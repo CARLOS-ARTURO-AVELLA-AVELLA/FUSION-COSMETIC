@@ -36,220 +36,173 @@ export default function Ofertas() {
 
   return (
     <div className="min-h-screen bg-white">
-      
-  
-    <section className="bg-gradient-to-r from-turquoise to-gold py-16">
+
+      {/* Hero con gradiente */}
+      <section className="bg-gradient-to-r from-turquoise to-gold py-16">
         <div className="max-w-7xl mx-auto px-4">
-        <div className="flex items-center gap-4 mb-6">
-        <Zap size={40} className="text-white" />
-        <h1 className="text-5xl font-bold font-display text-white">
-        Ofertas y Descuentos
-        </h1>
-    </div>
-        <p className="text-white/90 text-lg max-w-2xl mb-6">
-        Descubre nuestras mejores ofertas en fragancias premium. Ahorra en los perfumes que amas con descuentos exclusivos por tiempo limitado.
-        </p>
-        <div className="bg-white/20 backdrop-blur rounded-lg p-6 max-w-md">
-        <p className="text-white text-sm font-semibold mb-2">Ahorro Total Disponible</p>
-        <p className="text-4xl font-bold text-white">
-        ${ahorroTotal.toFixed(2)}
-        </p>
-    </div>
-    </div>
-    </section>
-
-
-    <section className="py-8 border-b-2 border-turquoise/20">
-        <div className="max-w-7xl mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            
-       
-    <div>
-        <label className="block text-sm font-semibold text-gray-700 mb-3">
-        Tipo de Oferta
-        </label>
-        <div className="flex flex-wrap gap-3">
-        <button
-        onClick={() => setTipoOferta('todas')}
-        className={`px-4 py-2 rounded-lg font-semibold transition ${
-        tipoOferta === 'todas'
-        ? 'bg-turquoise text-white'
-        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-}`}
-    >
-        Todas
-        </button>
-        <button
-        onClick={() => setTipoOferta('super-descuento')}
-        className={`px-4 py-2 rounded-lg font-semibold transition flex items-center gap-2 ${
-        tipoOferta === 'super-descuento'
-        ? 'bg-turquoise text-white'
-        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-    }`}
-    >
-        <Zap size={18} />
-        30%+
-        </button>
-        <button
-        onClick={() => setTipoOferta('descuento-medio')}
-        className={`px-4 py-2 rounded-lg font-semibold transition ${
-        tipoOferta === 'descuento-medio'
-        ? 'bg-turquoise text-white'
-        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-    }`}
-    >
-        15-30%
-        </button>
-        <button
-        onClick={() => setTipoOferta('descuento-pequeno')}
-        className={`px-4 py-2 rounded-lg font-semibold transition ${
-        tipoOferta === 'descuento-pequeno'
-        ? 'bg-turquoise text-white'
-        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-        }`}
-    >
-        0-15%
-        </button>
-    </div>
-    </div>
-
-          
-    <div>
-        <label className="block text-sm font-semibold text-gray-700 mb-3">
-        Ordenar Por
-        </label>
-    <select
-        value={sortType}
-        onChange={(e) => handleSort(e.target.value)}
-        className="w-full px-4 py-2 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-turquoise transition bg-white font-semibold"
-    >
-        <option value="descuento-desc">Mayor Descuento</option>
-        <option value="precio-asc">Precio: Menor a Mayor</option>
-        <option value="precio-desc">Precio: Mayor a Menor</option>
-        <option value="rating">Mejor Calificación</option>
-        <option value="popular">Más Popular</option>
-    </select>
-    </div>
-    </div>
-    </div>
-    </section>
-
-     
-        {productosDestacados.length > 0 && (
-    <section className="py-12 bg-gradient-to-b from-turquoise/10 to-gold/10">
-    <div className="max-w-7xl mx-auto px-4">
-        <h2 className="text-3xl font-bold font-display text-dark mb-8 flex items-center gap-3">
-        <Zap className="text-turquoise" size={32} />
-        Ofertas Destacadas
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {productosDestacados.map((product) => (
-        <div key={product.id} className="relative group">
-        <ProductCard producto={product} />
-        {product.descuento > 0 && (
-        <div className="absolute top-4 right-4 bg-turquoise text-white px-4 py-2 rounded-lg font-bold text-lg shadow-lg">
-        -{product.descuento}%
-    </div>
-    )}
-    </div>
- ))}
-    </div>
-    </div>
-    </section>
-    )}
-
-     
-    <section className="py-12">
-        <div className="max-w-7xl mx-auto px-4">
-        <h2 className="text-3xl font-bold font-display text-dark mb-8">
-        Todos los Productos en Oferta
-        </h2>
-
-        <p className="text-gray-600 mb-8 font-semibold">
-        {productosFiltrados.length} producto{productosFiltrados.length !== 1 ? 's' : ''} con descuento
-        </p>
-
-        {productosFiltrados.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {productosFiltrados.map((product) => (
-        <div key={product.id} className="relative group">
-        <ProductCard producto={product} />
-        {product.descuento > 0 && (
-        <div className="absolute top-4 right-4 bg-turquoise text-white px-3 py-1 rounded-lg font-bold shadow-lg">
-        -{product.descuento}%
-    </div>
-    )}
-        {product.resenas > 300 && (
-        <div className="absolute top-4 left-4 bg-gold text-dark px-3 py-1 rounded-lg text-sm font-semibold shadow-lg">
-        ⭐ Más Vendido
+          <div className="flex items-center gap-4 mb-6">
+            <Zap size={40} className="text-white" />
+            <h1 className="text-5xl font-bold font-display text-white"
+              style={{ textShadow: '0 2px 8px rgba(0,0,0,0.2)' }}>
+              Ofertas y Descuentos
+            </h1>
+          </div>
+          <p className="text-white mb-6 text-lg max-w-2xl"
+            style={{ textShadow: '0 1px 4px rgba(0,0,0,0.2)' }}>
+            Descubre nuestras mejores ofertas en fragancias premium. Ahorra en los perfumes que amas con descuentos exclusivos por tiempo limitado.
+          </p>
+          <div className="bg-white/20 backdrop-blur rounded-lg p-6 max-w-md">
+            <p className="text-white text-sm font-semibold mb-2">Ahorro Total Disponible</p>
+            <p className="text-4xl font-bold text-white">${ahorroTotal.toFixed(2)}</p>
+          </div>
         </div>
-    )}
-    </div>
-))}
-    </div>
-    ) : (
-        <div className="text-center py-16">
-        <TrendingDown size={48} className="mx-auto text-gray-400 mb-4" />
-        <p className="text-gray-600 text-lg mb-4">
-        No hay productos con descuento en este rango
-        </p>
-        <button
-        onClick={() => setTipoOferta('todas')}
-        className="px-6 py-3 bg-turquoise text-white font-bold rounded hover:bg-gold hover:text-dark transition"
-    >
-        Ver Todas las Ofertas
-        </button>
-    </div>
-    )}
-    </div>
-    </section>
+      </section>
 
-     
-    <section className="py-16 bg-gradient-to-b from-turquoise/10 to-gold/10">
+      {/* Filtros */}
+      <section className="py-8 border-b-2 border-turquoise/20">
         <div className="max-w-7xl mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div className="text-center p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition">
-        <Zap size={40} className="mx-auto text-turquoise mb-4" />
-        <h3 className="text-xl font-bold text-dark mb-2">Ofertas Limitadas</h3>
-        <p className="text-gray-600">
-        Nuestras ofertas cambian regularmente. No te pierdas los mejores descuentos.
-        </p>
-    </div>
-        <div className="text-center p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition">
-        <TrendingDown size={40} className="mx-auto text-gold mb-4" />
-        <h3 className="text-xl font-bold text-dark mb-2">Precios Competitivos</h3>
-        <p className="text-gray-600">
-        Los mejores precios garantizados en todas nuestras fragancias premium.
-        </p>
-    </div>
-        <div className="text-center p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition">
-        <Clock size={40} className="mx-auto text-turquoise mb-4" />
-        <h3 className="text-xl font-bold text-dark mb-2">Ofertas Exclusivas</h3>
-        <p className="text-gray-600">
-        Suscríbete para recibir alertas sobre nuestras mejores ofertas.
-        </p>
-    </div>
-    </div>
-    </div>
-    </section>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label className="block text-sm font-semibold text-gray-700 mb-3">Tipo de Oferta</label>
+              <div className="flex flex-wrap gap-3">
+                {[
+                  { key: 'todas', label: 'Todas' },
+                  { key: 'super-descuento', label: '30%+', icon: <Zap size={18} /> },
+                  { key: 'descuento-medio', label: '15-30%' },
+                  { key: 'descuento-pequeno', label: '0-15%' },
+                ].map(({ key, label, icon }) => (
+                  <button
+                    key={key}
+                    onClick={() => setTipoOferta(key)}
+                    className={`px-4 py-2 rounded-lg font-semibold transition flex items-center gap-2 ${
+                      tipoOferta === key
+                        ? 'bg-turquoise text-white'
+                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    }`}
+                  >
+                    {icon}{label}
+                  </button>
+                ))}
+              </div>
+            </div>
+            <div>
+              <label className="block text-sm font-semibold text-gray-700 mb-3">Ordenar Por</label>
+              <select
+                value={sortType}
+                onChange={(e) => handleSort(e.target.value)}
+                className="w-full px-4 py-2 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-turquoise transition bg-white font-semibold"
+              >
+                <option value="descuento-desc">Mayor Descuento</option>
+                <option value="precio-asc">Precio: Menor a Mayor</option>
+                <option value="precio-desc">Precio: Mayor a Menor</option>
+                <option value="rating">Mejor Calificación</option>
+                <option value="popular">Más Popular</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      
-        <section className="py-16 bg-gradient-to-r from-turquoise to-gold">
+      {/* Ofertas Destacadas */}
+      {productosDestacados.length > 0 && (
+        <section className="py-12 bg-gradient-to-b from-turquoise/10 to-gold/10">
+          <div className="max-w-7xl mx-auto px-4">
+            <h2 className="text-3xl font-bold font-display text-dark mb-8 flex items-center gap-3">
+              <Zap className="text-turquoise" size={32} />
+              Ofertas Destacadas
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {productosDestacados.map((product) => (
+                <div key={product.id} className="relative group">
+                  {/* ✅ Sin badge duplicado — ProductCard ya muestra el descuento */}
+                  <ProductCard producto={product} />
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Todos los productos */}
+      <section className="py-12">
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-3xl font-bold font-display text-dark mb-8">
+            Todos los Productos en Oferta
+          </h2>
+          <p className="text-gray-600 mb-8 font-semibold">
+            {productosFiltrados.length} producto{productosFiltrados.length !== 1 ? 's' : ''} con descuento
+          </p>
+
+          {productosFiltrados.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {productosFiltrados.map((product) => (
+                <div key={product.id} className="relative group">
+                  <ProductCard producto={product} />
+                  {/* ✅ "Más Vendido" — blanco sobre dark, legible */}
+                  {product.resenas > 300 && (
+                    <div className="absolute top-14 left-3 bg-dark text-white px-3 py-1 rounded-lg text-xs font-bold shadow-lg">
+                      ⭐ Más Vendido
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-16">
+              <TrendingDown size={48} className="mx-auto text-gray-400 mb-4" />
+              <p className="text-gray-600 text-lg mb-4">No hay productos con descuento en este rango</p>
+              <button
+                onClick={() => setTipoOferta('todas')}
+                className="px-6 py-3 bg-turquoise text-white font-bold rounded hover:bg-gold hover:text-dark transition"
+              >
+                Ver Todas las Ofertas
+              </button>
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* Beneficios */}
+      <section className="py-16 bg-gradient-to-b from-turquoise/10 to-gold/10">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition">
+              <Zap size={40} className="mx-auto text-turquoise mb-4" />
+              <h3 className="text-xl font-bold text-dark mb-2">Ofertas Limitadas</h3>
+              <p className="text-gray-600">Nuestras ofertas cambian regularmente. No te pierdas los mejores descuentos.</p>
+            </div>
+            <div className="text-center p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition">
+              <TrendingDown size={40} className="mx-auto text-gold mb-4" />
+              <h3 className="text-xl font-bold text-dark mb-2">Precios Competitivos</h3>
+              <p className="text-gray-600">Los mejores precios garantizados en todas nuestras fragancias premium.</p>
+            </div>
+            <div className="text-center p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition">
+              <Clock size={40} className="mx-auto text-turquoise mb-4" />
+              <h3 className="text-xl font-bold text-dark mb-2">Ofertas Exclusivas</h3>
+              <p className="text-gray-600">Suscríbete para recibir alertas sobre nuestras mejores ofertas.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ✅ Sección final — fondo oscuro en lugar de gradiente con texto ilegible */}
+      <section className="py-16 bg-dark">
         <div className="max-w-7xl mx-auto px-4 text-center">
-        <h2 className="text-4xl font-bold font-display text-white mb-6">
-        ¿No encontraste lo que buscas?
-        </h2>
-        <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
-        Navega por todas nuestras fragancias y encuentra la oferta perfecta para ti.
-        </p>
-        <button
-        onClick={() => navigate('/productos')}
-         className="px-8 py-4 bg-white text-turquoise font-bold rounded-full hover:bg-gray-100 transition duration-300 text-lg shadow-lg"
-    >
-        Ver Todos los Productos
-        </button>
-    </div>
-    </section>
+          <h2 className="text-4xl font-bold font-display text-white mb-6">
+            ¿No encontraste lo que buscas?
+          </h2>
+          <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
+            Navega por todas nuestras fragancias y encuentra la oferta perfecta para ti.
+          </p>
+          <button
+            onClick={() => navigate('/productos')}
+            className="px-8 py-4 bg-turquoise text-white font-bold rounded-full hover:bg-gold hover:text-dark transition duration-300 text-lg shadow-lg"
+          >
+            Ver Todos los Productos
+          </button>
+        </div>
+      </section>
+
     </div>
   )
 }
